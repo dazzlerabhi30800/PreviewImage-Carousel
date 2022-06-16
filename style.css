@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(7, 1, 26);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.heading {
+    position: relative;
+    top: -10%;
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.heading span:nth-child(1) {
+    background: linear-gradient(
+        to right,
+        rgb(247, 181, 95), rgb(243, 129, 101)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -text-fill-color: transparent;
+    font-size: 3.5rem;
+}
+
+.heading span:nth-child(2) {
+    background: linear-gradient(
+        to right,
+        rgb(212, 95, 247), rgb(101, 122, 243)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -text-fill-color: transparent;
+    font-size: 3.5rem;
+}
+
+.heading::after,
+.heading::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -.5rem;
+}
+.heading::before {
+    background: rgb(7, 1, 26);
+    animation: typewriter 5s forwards infinite alternate;
+    transition-timing-function: cubic-bezier(1, 0.7, 1.0, 0.5);
+}
+.heading::after {
+    background: white;
+    width: .114em;
+    animation: typewriter 5s forwards infinite alternate, blink 500ms infinite; 
+    transition-timing-function: cubic-bezier(1, 0.7, 1.0, 0.5);
+}
+
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
+
+
+.carousel--header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.carousel--header::after {
+    position: absolute;
+    content: "";
+    width: 99%;
+    height: 100%;
+    top: 0;
+    /* border-top: 1px solid white; */
+    z-index: -1;
+    animation : borderChange 10s ease-in-out infinite;
+}
+@keyframes  borderChange{ 
+  0% {
+    border-top: 1px solid white;
+  } 
+  25% {
+    border-top: 1px solid transparent;
+    border-right: 1px solid white;
+  }
+ 50% {
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid white;
+ }
+ 75% {
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid white;
+ }
+ 100% {
+    border-left: 1px solid transparent;
+    border-top : 1px solid white;
+ }
+}
+
+.carousel--container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+}
+
+
+.carousel--wrapper {
+    display: flex;
+    transition: all .3s ease-in-out;
+    transform: translateX(0px);
+    width: 500px;
+    height: 500px;
+}
+.carousel--wrapper img{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+
+
+.left {
+    position: absolute;
+    color: white;
+    z-index: 33;
+    top: 50%;
+    font-size: 1.5rem;
+    left: 1px;
+    background: rgba(3, 3, 3, 0.507);
+    backdrop-filter: blur(10px);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.right {
+    position: absolute;
+    color: white;
+    z-index: 33;
+    top: 50%;
+    right: 1px;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.459);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.preview--container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 444;
+    padding: 20px;
+    background: rgb(10, 10, 10);
+    transition: all .5s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+.preview--container.show {
+    z-index: 44;
+    opacity: 1;
+}
+
+#close-btn {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.preview--wrapper {
+    position: relative;
+    width: 1000px;
+    height: 760px;
+    overflow: hidden;
+    margin: 50px auto;
+    top: 10%;
+}
+
+.preview--carousel--container {
+    display: flex;
+    transform: translateX(0px);
+    transition: all .1s ease-in-out;
+}
+
+
+
+.preview--carousel--container img {
+    width: 1000px;
+    height: 760px;
+    object-fit: cover;
+}
+
+.arrow-left {
+    position: absolute;
+    top: 50%;
+    background: rgba(10, 10, 10, 0.514);
+    padding: 10px 15px;
+    font-size: 2rem;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    border-radius: 0px 5px 5px 0;
+}
+
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.514);
+    padding: 10px 15px;
+    font-size: 2rem;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    right: 0;
+    border-radius: 5px 0px 0px 5px;
+}
