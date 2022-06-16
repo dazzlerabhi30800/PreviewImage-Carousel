@@ -84,45 +84,9 @@ body {
 }
 
 
-.carousel--header {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
-}
-.carousel--header::after {
-    position: absolute;
-    content: "";
-    width: 99%;
-    height: 100%;
-    top: 0;
-    /* border-top: 1px solid white; */
-    z-index: -1;
-    animation : borderChange 10s ease-in-out infinite;
-}
-@keyframes  borderChange{ 
-  0% {
-    border-top: 1px solid white;
-  } 
-  25% {
-    border-top: 1px solid transparent;
-    border-right: 1px solid white;
-  }
- 50% {
-    border-right: 1px solid transparent;
-    border-bottom: 1px solid white;
- }
- 75% {
-    border-bottom: 1px solid transparent;
-    border-left: 1px solid white;
- }
- 100% {
-    border-left: 1px solid transparent;
-    border-top : 1px solid white;
- }
-}
+
+
+
 
 .carousel--container {
     position: relative;
